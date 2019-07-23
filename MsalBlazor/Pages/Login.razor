@@ -1,0 +1,20 @@
+﻿@page "/login"
+@inject Microsoft.Identity.Client.IPublicClientApplication client;
+<div>
+    <button onclick="@LoginTapped" type="submit">Login</button>
+</div>
+
+
+
+@functions
+{
+
+    async Task LoginTapped()
+    {
+        var authResult = await client.AcquireTokenInteractive(Startup.Scopes)
+                                                       .WithAuthority(Startup.Authority)
+                                                       .ExecuteAsync();
+
+        Console.WriteLine($"I got a token: {authResult.AccessToken}");
+    }
+}
