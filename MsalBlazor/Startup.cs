@@ -8,6 +8,7 @@ namespace MsalBlazor
 {
     public class Startup
     {
+        // These values should be filled out with actual id's and Urls
         public static string ClientId = "";
         public static string RedirectUri = "";
         public static string Authority = "";
